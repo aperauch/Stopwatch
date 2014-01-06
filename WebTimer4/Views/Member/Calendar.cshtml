@@ -1,10 +1,12 @@
 ﻿@model IEnumerable<WebTimer4.Models.Member>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Calendar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 }
 
-<h2>Index</h2>
+<h2>Calendar</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -53,7 +55,6 @@
             @Html.DisplayFor(modelItem => item.TotalHours)
         </td>
         <td>
-            @Html.ActionLink("Meeting Hours", "GetMeetingHours", item) |
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })

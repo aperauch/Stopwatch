@@ -13,6 +13,25 @@ namespace WebTimer4.Controllers
     {
         private MemberDBContext db = new MemberDBContext();
 
+
+        // GET: /Member/Calendar
+        public ActionResult Calendar()
+        {
+            return View(db.Members.ToList());
+        }
+
+        public ActionResult GetMeetingHours(Member member)
+        {
+            if (ModelState.IsValid)
+            {
+                member.getOutlookCalendar();
+                db.Entry(member).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(member);
+        }
+
         //
         // GET: /Member/
 
