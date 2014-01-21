@@ -224,7 +224,12 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\ChartJS\LICENSE.md" />
+    <Content Include="Scripts\ChartJS\readme.md" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\ChartJS\Chart.js" />
+    <Content Include="Scripts\ChartJS\Chart.min.js" />
+    <Content Include="Scripts\ChartJS\MemberCharts.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

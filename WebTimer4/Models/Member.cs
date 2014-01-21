@@ -22,7 +22,7 @@ namespace WebTimer4.Models
         //Methods
         public void getOutlookCalendar()
         {
-            TotalHours = 0;//DEBUG
+            TotalHours = 0;
 
             Microsoft.Office.Interop.Outlook.Application oApp = null;
             Microsoft.Office.Interop.Outlook.NameSpace mapiNamespace = null;
@@ -39,38 +39,6 @@ namespace WebTimer4.Models
 
             foreach (Microsoft.Office.Interop.Outlook.AppointmentItem item in outlookCalendarItems)
             {
-                /*if (item.IsRecurring)
-                {
-                    Microsoft.Office.Interop.Outlook.RecurrencePattern rp = item.GetRecurrencePattern();
-                    DateTime first = new DateTime(2014, 1, 6, item.Start.Hour, item.Start.Minute, 0);
-                    DateTime last = new DateTime(2014, 1, 6);
-                    Microsoft.Office.Interop.Outlook.AppointmentItem recur = null;
-
-                    for (DateTime cur = first; cur <= last; cur = cur.AddDays(1))
-                    {
-                        try
-                        {
-                            recur = rp.GetOccurrence(cur);
-
-                            long busy = 2;
-                            if ((long)item.BusyStatus == busy)
-                                TotalHours += (Double)item.Duration / 60.0;
-                            
-                            Debug.WriteLine(recur.Subject + " -> " + cur.ToLongDateString());
-                        }
-                        catch
-                        { }
-                    }
-                }
-                else
-                {
-                    long busy = 2;
-                    if ((long)item.BusyStatus == busy)
-                        TotalHours += (Double)item.Duration / 60.0;
-
-                    Debug.WriteLine(item.Subject + " -> " + item.Start.ToLongDateString());
-                }*/
-
                 long busy = 2;
                 int dHours = 0;
                 double dMins = 0.0;

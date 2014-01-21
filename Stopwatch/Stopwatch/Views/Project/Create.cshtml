@@ -1,0 +1,67 @@
+﻿@model Stopwatch.Models.Project
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Project</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Active)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Active)
+            @Html.ValidationMessageFor(model => model.Active)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.StartDate, String.Format("{0:d}", Model.StartDate.ToShortDateString()), new { @class = "datepickerUI" })
+            @Html.ValidationMessageFor(model => model.StartDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.EndDate, String.Format("{0:d}", Model.EndDate.ToShortDateString()), new { @class = "datepickerUI" })
+            @Html.ValidationMessageFor(model => model.EndDate)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/themes/base/css")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".datepickerUI").datepicker();
+        });
+    </script>
+}

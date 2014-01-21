@@ -13,7 +13,6 @@ namespace WebTimer4.Controllers
     {
         private MemberDBContext db = new MemberDBContext();
 
-
         // GET: /Member/Calendar
         public ActionResult Calendar()
         {
