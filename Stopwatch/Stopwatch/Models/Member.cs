@@ -10,16 +10,20 @@ namespace Stopwatch.Models
 {
     public class Member
     {
-        //Properties
+        [Key]
         public int ID { get; set; }
         [ScaffoldColumn(false)]
         public string ADName { get; set; }
+        [Required]
         public string Firstname { get; set; }
+        [Required]
         public string Lastname { get; set; }
+        [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         public virtual ICollection<Engagement> Engagements { get; set; }
+        public virtual ICollection<Project> Projects { get; set; }
 
         //Constructor
         public Member()
