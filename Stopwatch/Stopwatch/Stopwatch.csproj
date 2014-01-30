@@ -173,6 +173,10 @@
     <Compile Include="Migrations\201401301557171_SuperAwesome.Designer.cs">
       <DependentUpon>201401301557171_SuperAwesome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201401301622309_AddedProjectMembersList.cs" />
+    <Compile Include="Migrations\201401301622309_AddedProjectMembersList.Designer.cs">
+      <DependentUpon>201401301622309_AddedProjectMembersList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Engagement.cs" />
     <Compile Include="Models\Member.cs" />
@@ -320,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201401301557171_SuperAwesome.resx">
       <DependentUpon>201401301557171_SuperAwesome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401301622309_AddedProjectMembersList.resx">
+      <DependentUpon>201401301622309_AddedProjectMembersList.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

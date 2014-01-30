@@ -27,13 +27,14 @@ namespace Stopwatch.Models
         public TimeSpan TimeSpan { get; set; }
 
         public virtual ICollection<Engagement> Engagements { get; set; }
-        //public virtual ICollection<Member> Members { get; set; }
-        public virtual Member member { get; set; }
+        public virtual ICollection<Member> Members { get; set; }
+        public virtual Member Owner { get; set; }
 
         //Constructor
         public Project()
         {
             Engagements = new List<Engagement>();
+            Members = new List<Member>();
             StartDate = DateTime.Now;
             EndDate = DateTime.Now.AddDays(7);
         }

@@ -35,7 +35,7 @@ namespace Stopwatch.Controllers
                 //Create new engagement and set attributes
                 Engagement e = new Engagement();
                 e.ProjectID = project.ID;
-                e.MemberID = project.member.ID;
+                e.MemberID = project.Owner.ID;
                 e.StartTime = DateTime.Now;
 
                 //Set project attributes
@@ -131,7 +131,7 @@ namespace Stopwatch.Controllers
                     string ADName = user.SamAccountName.ToLower();
                     Member member = db.Members.FirstOrDefault<Member>(m => m.ADName == ADName);
                     member.Projects.Add(project);
-                    project.member = member;
+                    project.Owner = member;
                     db.Projects.Add(project);
                     db.SaveChanges();
                     return RedirectToAction("Index");
