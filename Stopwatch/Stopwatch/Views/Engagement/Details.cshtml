@@ -10,6 +10,20 @@
     <legend>Engagement</legend>
 
     <div class="display-label">
+         @Html.DisplayNameFor(model => model.MemberID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MemberID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProjectID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProjectID)
+    </div>
+
+    <div class="display-label">
          @Html.DisplayNameFor(model => model.StartTime)
     </div>
     <div class="display-field">
@@ -24,10 +38,10 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.EngagementHours)
+         @Html.DisplayNameFor(model => model.TimeSpan)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.EngagementHours)
+        @Html.DisplayFor(model => model.TimeSpan)
     </div>
 </fieldset>
 <p>

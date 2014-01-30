@@ -12,13 +12,19 @@
 <table>
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.MemberID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectID)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.StartTime)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.StopTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EngagementHours)
+            @Html.DisplayNameFor(model => model.TimeSpan)
         </th>
         <th></th>
     </tr>
@@ -26,13 +32,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.MemberID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectID)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.StartTime)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StopTime)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EngagementHours)
+            @Html.DisplayFor(modelItem => item.TimeSpan)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.EngagementID }) |

@@ -14,6 +14,22 @@
         <legend>Engagement</legend>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.MemberID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MemberID)
+            @Html.ValidationMessageFor(model => model.MemberID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProjectID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ProjectID)
+            @Html.ValidationMessageFor(model => model.ProjectID)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.StartTime)
         </div>
         <div class="editor-field">
@@ -30,11 +46,11 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.EngagementHours)
+            @Html.LabelFor(model => model.TimeSpan)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.EngagementHours)
-            @Html.ValidationMessageFor(model => model.EngagementHours)
+            @Html.EditorFor(model => model.TimeSpan)
+            @Html.ValidationMessageFor(model => model.TimeSpan)
         </div>
 
         <p>
