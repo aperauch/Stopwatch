@@ -12,15 +12,11 @@ namespace Stopwatch.Models
     {
         [Key]
         public int EngagementID { get; set; }
-        //[ForeignKey("MemberID")]
         public int MemberID { get; set; }
-        //[ForeignKey("ProjectID")]
         public int ProjectID { get; set; }
-        //[DataType(DataType.Date)]
         public DateTime StartTime { get; set; }
-        //[DataType(DataType.Date)]
         public DateTime StopTime { get; set; }
-        public double EngagementHours { get; set; }
+        public TimeSpan TimeSpan { get; set; }
 
         public Engagement()
         {

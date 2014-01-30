@@ -1,0 +1,40 @@
+﻿@model Stopwatch.Models.Engagement
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Engagement</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StartTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartTime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StopTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StopTime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EngagementHours)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EngagementHours)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

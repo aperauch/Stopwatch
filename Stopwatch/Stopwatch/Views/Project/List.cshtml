@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Stopwatch.Models.Project>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List of Projects</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndDate)
+        </th>
+        <th>
+            @Html.DisplayName("Timer")
+        </th>
+        <th>
+            @Html.DisplayName("Time")
+        </th>
+    </tr>
+@{
+    int index = 0;
+    bool activeProject = false;
+    for (int i = 0; i < Model.Count(); i++)
+    {
+        if (Model.ElementAt(i).Active == true)
+        {
+            index = i;
+            activeProject = true;
+            break;
+        }
+    }
+}
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(i => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(i => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(i => item.StartDate)
+        </td>
+        <td>
+            @Html.DisplayFor(i => item.EndDate)
+        </td>
+        @{
+            if (activeProject == true) {
+                if (item.Active == true) {
+                    <td>
+                        @Html.ActionLink("Stop", "StopTimer", item)
+                    </td>
+                }
+                else {
+                    <td>
+                        Start
+                    </td>
+                    <td>
+                        @Html.DisplayFor(i => item.Time)
+                    </td>
+                }
+            }
+            else {
+                <td>
+                    @Html.ActionLink("Start", "StartTimer", item)
+                </td>
+                <td>
+                    @Html.DisplayFor(i => item.Time)
+                </td>
+            }
+        }
+    </tr>
+}
+
+</table>

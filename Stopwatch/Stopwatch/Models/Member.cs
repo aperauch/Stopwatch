@@ -12,7 +12,7 @@ namespace Stopwatch.Models
     {
         [Key]
         public int ID { get; set; }
-        [ScaffoldColumn(false)]
+        [Required]
         public string ADName { get; set; }
         [Required]
         public string Firstname { get; set; }
@@ -43,6 +43,10 @@ namespace Stopwatch.Models
                 Lastname = user.Surname;
                 Email = user.EmailAddress.ToLower();
             }
+
+            //Initialize the collections
+            Engagements = new List<Engagement>();
+            Projects = new List<Project>();
         }
 
     }

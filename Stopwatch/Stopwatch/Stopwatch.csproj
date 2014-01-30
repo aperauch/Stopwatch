@@ -145,6 +145,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\EngagementController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
@@ -152,9 +153,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201401171958210_Initial.cs" />
-    <Compile Include="Migrations\201401171958210_Initial.Designer.cs">
-      <DependentUpon>201401171958210_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201401292145379_InitialCreate.cs" />
+    <Compile Include="Migrations\201401292145379_InitialCreate.Designer.cs">
+      <DependentUpon>201401292145379_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401300039095_Member.cs" />
+    <Compile Include="Migrations\201401300039095_Member.Designer.cs">
+      <DependentUpon>201401300039095_Member.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401300105239_ADName.cs" />
+    <Compile Include="Migrations\201401300105239_ADName.Designer.cs">
+      <DependentUpon>201401300105239_ADName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401300245068_TimeSpan.cs" />
+    <Compile Include="Migrations\201401300245068_TimeSpan.Designer.cs">
+      <DependentUpon>201401300245068_TimeSpan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401301557171_SuperAwesome.cs" />
+    <Compile Include="Migrations\201401301557171_SuperAwesome.Designer.cs">
+      <DependentUpon>201401301557171_SuperAwesome.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Engagement.cs" />
@@ -235,7 +252,9 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -276,13 +295,31 @@
     <Content Include="Views\Project\Create.cshtml" />
     <Content Include="Views\Project\Edit.cshtml" />
     <Content Include="Views\Project\Delete.cshtml" />
+    <Content Include="Views\Project\List.cshtml" />
+    <Content Include="Views\Engagement\Index.cshtml" />
+    <Content Include="Views\Engagement\Details.cshtml" />
+    <Content Include="Views\Engagement\Create.cshtml" />
+    <Content Include="Views\Engagement\Edit.cshtml" />
+    <Content Include="Views\Engagement\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201401171958210_Initial.resx">
-      <DependentUpon>201401171958210_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201401292145379_InitialCreate.resx">
+      <DependentUpon>201401292145379_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401300039095_Member.resx">
+      <DependentUpon>201401300039095_Member.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401300105239_ADName.resx">
+      <DependentUpon>201401300105239_ADName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401300245068_TimeSpan.resx">
+      <DependentUpon>201401300245068_TimeSpan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201401301557171_SuperAwesome.resx">
+      <DependentUpon>201401301557171_SuperAwesome.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -18,17 +18,17 @@ namespace Stopwatch.Models
         [Required]
         public string Title { get; set; }
         [DisplayName("Start Date")]
-        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
         [DisplayName("End Date")]
-        //[DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime EndDate { get; set; }
+        [DisplayFormat(DataFormatString = "{0:hh\\:mm\\:ss}")]
+        public TimeSpan TimeSpan { get; set; }
 
-        //[InverseProperty("EProject")]
         public virtual ICollection<Engagement> Engagements { get; set; }
-        public virtual ICollection<Member> Members { get; set; }
+        //public virtual ICollection<Member> Members { get; set; }
+        public virtual Member member { get; set; }
 
         //Constructor
         public Project()

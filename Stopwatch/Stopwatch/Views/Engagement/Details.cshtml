@@ -1,0 +1,36 @@
+﻿@model Stopwatch.Models.Engagement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Engagement</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StartTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartTime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StopTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StopTime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EngagementHours)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EngagementHours)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.EngagementID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
