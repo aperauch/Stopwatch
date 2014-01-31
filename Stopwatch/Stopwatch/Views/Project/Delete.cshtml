@@ -37,6 +37,13 @@
     <div class="display-field">
         @Html.DisplayFor(model => model.EndDate)
     </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TimeSpan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TimeSpan)
+    </div>
 </fieldset>
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()

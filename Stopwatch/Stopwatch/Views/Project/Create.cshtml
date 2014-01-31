@@ -6,8 +6,7 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm())
-{
+@using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -45,7 +44,16 @@
             @Html.TextBoxFor(model => model.EndDate, String.Format("{0:d}", Model.EndDate.ToShortDateString()), new { @class = "datepickerUI" })
             @Html.ValidationMessageFor(model => model.EndDate)
         </div>
-
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Members)
+        </div>
+        <div class="editor-field">
+            @Html.ListBoxFor(model => model.Members, new MultiSelectList(ViewData["Members"] as List<Stopwatch.Models.Member>, "ADName", "Lastname", "Firstname"))
+        </div>
+        <div class="editor-field">
+            @Html.ListBoxFor(model => model.SelectedMembers, Model.SMembers)
+        </div>
         <p>
             <input type="submit" value="Create" />
         </p>

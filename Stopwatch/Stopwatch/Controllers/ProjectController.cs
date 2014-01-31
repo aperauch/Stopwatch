@@ -7,7 +7,6 @@ using System.Web;
 using System.Web.Mvc;
 using Stopwatch.Models;
 using Stopwatch.DAL;
-using System.DirectoryServices.AccountManagement;
 
 namespace Stopwatch.Controllers
 {
@@ -23,7 +22,6 @@ namespace Stopwatch.Controllers
         public ActionResult StartTimer(int id = 0)
         {
             Project project = db.Projects.Find(id);
-            //Member member = db.Members.Find(id);
 
             if (project == null)
             {
@@ -85,6 +83,7 @@ namespace Stopwatch.Controllers
 
         //
         // GET: /Project/
+
         public ActionResult Index()
         {
             return View(db.Projects.ToList());
@@ -92,6 +91,7 @@ namespace Stopwatch.Controllers
 
         //
         // GET: /Project/Details/5
+
         public ActionResult Details(int id = 0)
         {
             Project project = db.Projects.Find(id);
@@ -104,42 +104,66 @@ namespace Stopwatch.Controllers
 
         //
         // GET: /Project/Create
+
         public ActionResult Create()
         {
             Project project = new Project();
+            List<Member> members = db.Members.ToList();
+            Member currentUser = new Member();
+            Member owner = null;
+
+            foreach (Member m in members)
+            {
+                if (m.ADName.Equals(currentUser.ADName))
+                    owner = m;
+            }
+
+            if (owner == null)
+                owner = currentUser;
+
+            project.Owner = owner;
+
+            List<SelectListItem> listSelectMembers = new List<SelectListItem>();
+            foreach (Member m in db.Members)
+            {
+                SelectListItem sli = new SelectListItem()
+                {
+                    Text = m.ADName,
+                    Value = m.ID.ToString(),
+                    Selected = m.IsSelected
+                };
+                listSelectMembers.Add(sli);
+            }
+            project.SMembers = listSelectMembers;
+
+            ViewData["Members"] = members;
+
             return View(project);
         }
 
+        //[HttpPost]
+        //public string Create(IEnumerable<string> selectedMembers)
+        //{
+        //    if (selectedMembers == null)
+        //        return "Nothing select";
+        //    else
+        //    {
+        //        return "You selected " + string.Join(", ", selectedMembers);
+        //    }
+        //}
+
         //
         // POST: /Project/Create
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Project project)
         {
             if (ModelState.IsValid)
             {
-                //Get the AD Username
-                //Set up domain context
-                PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
-
-                //Find the current user
-                UserPrincipal user = UserPrincipal.Current;
-
-                if (user != null)
-                {
-                    //Get AD user properties
-                    string ADName = user.SamAccountName.ToLower();
-                    Member member = db.Members.FirstOrDefault<Member>(m => m.ADName == ADName);
-                    member.Projects.Add(project);
-                    project.Owner = member;
-                    db.Projects.Add(project);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    return View(project);
-                }         
+                db.Projects.Add(project);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
 
             return View(project);

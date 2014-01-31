@@ -21,6 +21,7 @@ namespace Stopwatch.Models
         [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        public bool IsSelected { get; set; }
 
         public virtual ICollection<Engagement> Engagements { get; set; }
         public virtual ICollection<Project> Projects { get; set; }

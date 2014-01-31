@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
 
 namespace Stopwatch.Models
 {
@@ -29,6 +30,8 @@ namespace Stopwatch.Models
         public virtual ICollection<Engagement> Engagements { get; set; }
         public virtual ICollection<Member> Members { get; set; }
         public virtual Member Owner { get; set; }
+        public IEnumerable<string> SelectedMembers { get; set; }
+        public IEnumerable<SelectListItem> SMembers { get; set; }
 
         //Constructor
         public Project()
@@ -38,5 +41,7 @@ namespace Stopwatch.Models
             StartDate = DateTime.Now;
             EndDate = DateTime.Now.AddDays(7);
         }
+
+        
     }
 }

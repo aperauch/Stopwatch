@@ -47,6 +47,14 @@
             @Html.ValidationMessageFor(model => model.EndDate)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TimeSpan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TimeSpan)
+            @Html.ValidationMessageFor(model => model.TimeSpan)
+        </div>
+
         <p>
             <input type="submit" value="Save" />
         </p>
